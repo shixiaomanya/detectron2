@@ -1,7 +1,7 @@
 _BASE_: "../Base-RCNN-C4.yaml"
 DE:
-  CLASS_PROTOTYPES: "weights/initial/few-shot/prototypes/fs_coco14_base_train.vits14.pkl,weights/initial/few-shot/prototypes/fs_coco_trainval_novel_5shot.vits14.pkl"
-  BG_PROTOTYPES: "weights/initial/background/background_prototypes.vits14.pth"
+  CLASS_PROTOTYPES: "./base.pkl,./novel.pkl"
+  BG_PROTOTYPES: "/content/drive/MyDrive/Copy of background_prototypes.vits14.pth"
   BG_CLS_LOSS_WEIGHT: 0.2
   TOPK: 10
 
@@ -27,8 +27,8 @@ MODEL:
 INPUT:
   MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800)
 DATASETS:
-  TRAIN: ("fs_coco14_base_train",)
-  TEST: ("fs_coco_test_all",)
+  TRAIN: ("base_train",)
+  TEST: ("test_all",)
 TEST:
   EVAL_PERIOD: 5000
 SOLVER:
