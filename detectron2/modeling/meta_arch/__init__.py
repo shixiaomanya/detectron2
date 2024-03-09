@@ -12,5 +12,7 @@ from .retinanet import RetinaNet
 from .fcos import FCOS
 from .semantic_seg import SEM_SEG_HEADS_REGISTRY, SemanticSegmentor, build_sem_seg_head
 
+from .devit import OpenSetDetectorWithExamples
+
 
 __all__ = list(globals().keys())
