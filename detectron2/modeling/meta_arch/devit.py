@@ -45,9 +45,7 @@ from detectron2.structures import Boxes, Instances
 from fvcore.nn import giou_loss, smooth_l1_loss
 from detectron2.structures.masks import PolygonMasks
 
-from lib.dinov2.layers.block import Block
 from lib.regionprop import augment_rois, region_coord_2_abs_coord, abs_coord_2_region_coord, SpatialIntegral
-from lib.categories import SEEN_CLS_DICT, ALL_CLS_DICT
 
 
 def generalized_box_iou(boxes1, boxes2) -> torch.Tensor:
@@ -788,8 +786,8 @@ class OpenSetDetectorWithExamples(nn.Module):
             "num_sample_class": cfg.DE.TOPK,
             
             
-            "seen_cids": SEEN_CLS_DICT[cfg.DATASETS.TRAIN[0]],
-            "all_cids": ALL_CLS_DICT[cfg.DATASETS.TRAIN[0]],
+            "seen_cids": ['fig', 'hazelnut'],
+            "all_cids": ['date'],
             "T_length": cfg.DE.T,
             
             "bg_cls_weight": cfg.DE.BG_CLS_LOSS_WEIGHT,
