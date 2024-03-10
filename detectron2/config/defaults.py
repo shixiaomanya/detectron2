@@ -131,6 +131,7 @@ _C.DATALOADER.FILTER_EMPTY_ANNOTATIONS = True
 _C.MODEL.BACKBONE = CN()
 
 _C.MODEL.BACKBONE.NAME = "build_resnet_backbone"
+_C.MODEL.BACKBONE.TYPE = ""
 # Freeze the first several stages so they are not trained.
 # There are 5 stages in ResNet. The first is a convolution, and the following
 # stages are each group of residual blocks.
@@ -648,3 +649,32 @@ _C.VIS_PERIOD = 0
 # Do not commit any configs into it.
 _C.GLOBAL = CN()
 _C.GLOBAL.HACK = 1.0
+
+# ---------------------------------------------------------------------------- #
+# our options
+# ---------------------------------------------------------------------------- #
+
+_C.DE = CN()
+_C.DE.CLASS_PROTOTYPES = None
+_C.DE.BG_PROTOTYPES = ""
+_C.DE.TOPK = -1
+
+_C.DE.T = 128
+_C.DE.RCNN_BATCH_SIZE = 128
+_C.DE.POS_RATIO = 0.25
+_C.DE.TEMP = 0.1
+_C.DE.NUM_CLS_LAYERS = 3
+
+_C.DE.ONE_SHOT_MODE = False
+_C.DE.ONE_SHOT_REFERENCE = ''
+
+_C.DE.ONLY_TRAIN_MASK = True
+_C.DE.OUT_INDICES = None
+
+# from RegionCLIP
+_C.DE.BG_CLS_LOSS_WEIGHT = None
+_C.DE.MULTIPLY_RPN_SCORE = False
+_C.DE.OFFLINE_RPN_CONFIG = None
+_C.DE.OFFLINE_RPN_LSJ_PRETRAINED = False
+_C.DE.OFFLINE_RPN_NMS_THRESH = None
+_C.DE.OFFLINE_RPN_POST_NMS_TOPK_TEST = None
