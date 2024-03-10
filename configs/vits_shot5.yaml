@@ -1,7 +1,7 @@
 _BASE_: "/content/detectron2_repo/configs/Base-RCNN-C4.yaml"
 OUTPUT_DIR: "/content/output/train/few-shot/shot-5/vits"
 DE:
-  CLASS_PROTOTYPES: "./base.pkl,./novel.pkl"
+  CLASS_PROTOTYPES: "./base.pth,./novel.pth"
   BG_PROTOTYPES: "/content/drive/MyDrive/Copy of background_prototypes.vits14.pth"
   BG_CLS_LOSS_WEIGHT: 0.2
   TOPK: 10
