@@ -1,4 +1,4 @@
-_BASE_: "../Base-RCNN-C4.yaml"
+_BASE_: "./Base-RCNN-C4.yaml"
 DE:
   CLASS_PROTOTYPES: "./base.pkl,./novel.pkl"
   BG_PROTOTYPES: "/content/drive/MyDrive/Copy of background_prototypes.vits14.pth"
