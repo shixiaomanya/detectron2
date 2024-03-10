@@ -1108,8 +1108,6 @@ class OpenSetDetectorWithExamples(nn.Module):
             roi_features = roi_features.flatten(2) 
             bs, spatial_size = roi_features.shape[0], roi_features.shape[-1]
             # (N x spatial x emb) @ (emb x class) = N x spatial x class
-            print('roi_features.transpose(-2,-1)=', roi_features.transpose(-2,-1).size())
-            print('class_weights.T.siez()=', class_weights.T.size())
             feats = roi_features.transpose(-2, -1) @ class_weights.T
 
             # sample topk classes
