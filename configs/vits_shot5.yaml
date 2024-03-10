@@ -1,4 +1,4 @@
-_BASE_: "./Base-RCNN-C4.yaml"
+_BASE_: "../Base-RCNN-C4.yaml"
 OUTPUT_DIR: "/content/output/train/few-shot/shot-5/vits"
 DE:
   CLASS_PROTOTYPES: "./base.pkl,./novel.pkl"
