@@ -32,7 +32,7 @@ COCO_UNSEEN_CLS = ['date']
 from PIL import Image
 import copy
 from ..backbone.fpn import build_resnet_fpn_backbone
-from detectron2.utils.comm import gather_tensors, MILCrossEntropy
+#from detectron2.utils.comm import gather_tensors, MILCrossEntropy
 
 from detectron2.layers.roi_align import ROIAlign
 from torchvision.ops.boxes import box_area, box_iou
