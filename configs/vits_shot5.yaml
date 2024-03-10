@@ -1,16 +1,18 @@
 _BASE_: "./Base-RCNN-C4.yaml"
+OUTPUT_DIR: "/content/output/train/few-shot/shot-5/vits"
 DE:
   CLASS_PROTOTYPES: "./base.pkl,./novel.pkl"
   BG_PROTOTYPES: "/content/drive/MyDrive/Copy of background_prototypes.vits14.pth"
   BG_CLS_LOSS_WEIGHT: 0.2
   TOPK: 10
+  OFFLINE_RPN_CONFIG: "/content/detectron2_repo/configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml"
 
 MODEL:
   META_ARCHITECTURE: "OpenSetDetectorWithExamples"
   BACKBONE:
     NAME: "build_dino_v2_vit"
     TYPE: "small" # base, small
-  WEIGHTS: "" 
+  WEIGHTS: "/content/drive/MyDrive/Copy of vits+rpn.pth" 
   MASK_ON: False
   RPN:
     HEAD_NAME: StandardRPNHead
