@@ -11,11 +11,6 @@ from .backbone import (
     build_backbone,
     build_resnet_backbone,
     make_stage,
-    ViT,
-    SimpleFeaturePyramid,
-    get_vit_lr_decay_rate,
-    MViT,
-    SwinTransformer,
 )
 from .meta_arch import (
     META_ARCH_REGISTRY,
