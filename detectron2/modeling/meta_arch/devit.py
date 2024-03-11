@@ -1145,7 +1145,6 @@ class OpenSetDetectorWithExamples(nn.Module):
 
             other_classes = [] 
             if sample_class_enabled:
-                print('sample_class_enabled为True，且num_classes=',num_classes)
                 indexes = torch.arange(0, num_classes, device=self.device)[None, None, :].repeat(bs, spatial_size, 1)
                 for i in range(class_topk):
                     cmask = indexes != class_indices[:, i].view(-1, 1, 1)
