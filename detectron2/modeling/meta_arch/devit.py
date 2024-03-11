@@ -1154,14 +1154,12 @@ class OpenSetDetectorWithExamples(nn.Module):
                     _ = torch.gather(feats, 2, indexes[cmask].view(bs, spatial_size, num_classes - 1)) # N x spatial x classes-1
                     other_classes.append(_[:, :, None, :]) 
             else:
-                print('sample_class_enabled为False，且num_classes=',num_classes)
                 for c in range(num_classes): # TODO: change to classes sampling during training for LVIS type datasets
                     cmask = torch.ones(num_classes, device=self.device, dtype=torch.bool)
                     cmask[c] = False
                     _ = feats[:, :, cmask] # # N x spatial x classes-1
                     other_classes.append(_[:, :, None, :]) 
 
-            print('问题之所以出现就是因为other_classes=[],他确实=',other_classes)
             other_classes = torch.cat(other_classes, dim=2)  # N x spatial x classes x classes-1
             other_classes = other_classes.permute(0, 2, 1, 3) # N x classes x spatial x classes-1
             other_classes = other_classes.flatten(0, 1) # (Nxclasses) x spatial x classes-1
