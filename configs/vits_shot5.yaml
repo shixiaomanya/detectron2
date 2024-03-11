@@ -41,6 +41,9 @@ SOLVER:
   WARMUP_ITERS: 5000
   CHECKPOINT_PERIOD: 5000
 
+COCO_ALL_CLS: ['fig', 'hazelnut', 'date']
+COCO_SEEN_CLS: ['fig', 'hazelnut']
+COCO_UNSEEN_CLS: ['date']
 
 INPUT:
   MIN_SIZE_TRAIN_SAMPLING: choice
