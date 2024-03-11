@@ -26,9 +26,6 @@ from ..roi_heads import build_roi_heads
 from ..matcher import Matcher
 from .build import META_ARCH_REGISTRY
 
-COCO_SEEN_CLS = ['fig', 'hazelnut']
-COCO_UNSEEN_CLS = ['date']
-
 from PIL import Image
 import copy
 from ..backbone.fpn import build_resnet_fpn_backbone
@@ -449,7 +446,8 @@ class OpenSetDetectorWithExamples(nn.Module):
             prototypes = dct['prototypes']
             if 'label_names' not in dct:
                 warnings.warn("label_names not found in class_prototypes_file, using COCO_SEEN_CLS + COCO_UNSEEN_CLS")
-                prototype_label_names = COCO_SEEN_CLS + COCO_UNSEEN_CLS
+                #prototype_label_names = COCO_SEEN_CLS + COCO_UNSEEN_CLS
+                prototype_label_names = all_cids
                 assert len(prototype_label_names) == len(prototypes)
             else:
                 prototype_label_names = dct['label_names']
@@ -786,8 +784,8 @@ class OpenSetDetectorWithExamples(nn.Module):
             "num_sample_class": cfg.DE.TOPK,
             
             
-            "seen_cids": ['fig', 'hazelnut'],
-            "all_cids": ['date'],
+            "seen_cids": cfg.COCO_SEEN_CLS,
+            "all_cids": cfg.COCO_ALL_CLS,
             "T_length": cfg.DE.T,
             
             "bg_cls_weight": cfg.DE.BG_CLS_LOSS_WEIGHT,
