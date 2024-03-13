@@ -1103,7 +1103,6 @@ class OpenSetDetectorWithExamples(nn.Module):
         # roi_features # N x emb x spatial
         #%% #! Classification
         if (self.training and (not self.only_train_mask)) or (not self.training):
-            print('Classification')
             roi_features = roi_features.flatten(2) 
             bs, spatial_size = roi_features.shape[0], roi_features.shape[-1]
             # (N x spatial x emb) @ (emb x class) = N x spatial x class
@@ -1218,7 +1217,6 @@ class OpenSetDetectorWithExamples(nn.Module):
 
         #%% #! Regression
         if (self.training and (not self.only_train_mask)) or (not self.training):
-            print('Regression')
             H,W = images.tensor.shape[2:]
             if self.training:
                 fg_indices = class_labels != num_classes 
@@ -1338,7 +1336,6 @@ class OpenSetDetectorWithExamples(nn.Module):
         
         #%% #! Loss Finalization and Post Processing
         if self.training:
-            print('Loss Finalization and Post Processing')
             class_labels = class_labels.long()
             if not self.only_train_mask:
                 if sample_class_enabled:
