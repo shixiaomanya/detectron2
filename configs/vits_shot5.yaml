@@ -6,7 +6,7 @@ DE:
   BG_CLS_LOSS_WEIGHT: 0.2
   TOPK: 1
   OFFLINE_RPN_CONFIG: "/content/detectron2_repo/configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml"
-  ONLY_TRAIN_MASK：False
+  ONLY_TRAIN_MASK: False
 
 MODEL:
   META_ARCHITECTURE: "OpenSetDetectorWithExamples"
