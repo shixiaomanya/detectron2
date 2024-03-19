@@ -258,7 +258,7 @@ _C.MODEL.ROI_HEADS.NUM_CLASSES = 80
 _C.MODEL.ROI_HEADS.IN_FEATURES = ["res4"]
 # IOU overlap ratios [IOU_THRESHOLD]
 # Overlap threshold for an RoI to be considered background (if < IOU_THRESHOLD)
-# Overlap threshold for an RoI to be considered foreground (if >= IOU_THRESHOLD)
+# Overlap threshold for an RoI to be considered foreground (if >= IOU_  THRESHOLD)
 _C.MODEL.ROI_HEADS.IOU_THRESHOLDS = [0.5]
 _C.MODEL.ROI_HEADS.IOU_LABELS = [0, 1]
 # RoI minibatch size *per image* (number of regions of interest [ROIs]) during training
@@ -283,6 +283,14 @@ _C.MODEL.ROI_HEADS.NMS_THRESH_TEST = 0.5
 # If True, augment proposals with ground-truth boxes before sampling proposals to
 # train ROI heads.
 _C.MODEL.ROI_HEADS.PROPOSAL_APPEND_GT = True
+
+# Use soft NMS instead of standard NMS if set to True
+_C.MODEL.ROI_HEADS.SOFT_NMS_ENABLED = False
+# See soft NMS paper for definition of these options
+_C.MODEL.ROI_HEADS.SOFT_NMS_METHOD = "gaussian" # "linear"
+_C.MODEL.ROI_HEADS.SOFT_NMS_SIGMA = 0.5
+# For the linear_threshold we use NMS_THRESH_TEST
+_C.MODEL.ROI_HEADS.SOFT_NMS_PRUNE = 0.001
 
 # ---------------------------------------------------------------------------- #
 # Box Head
