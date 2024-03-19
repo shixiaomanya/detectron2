@@ -284,14 +284,6 @@ _C.MODEL.ROI_HEADS.NMS_THRESH_TEST = 0.5
 # train ROI heads.
 _C.MODEL.ROI_HEADS.PROPOSAL_APPEND_GT = True
 
-# Use soft NMS instead of standard NMS if set to True
-_C.MODEL.ROI_HEADS.SOFT_NMS_ENABLED = False
-# See soft NMS paper for definition of these options
-_C.MODEL.ROI_HEADS.SOFT_NMS_METHOD = "gaussian" # "linear"
-_C.MODEL.ROI_HEADS.SOFT_NMS_SIGMA = 0.5
-# For the linear_threshold we use NMS_THRESH_TEST
-_C.MODEL.ROI_HEADS.SOFT_NMS_PRUNE = 0.001
-
 # ---------------------------------------------------------------------------- #
 # Box Head
 # ---------------------------------------------------------------------------- #
