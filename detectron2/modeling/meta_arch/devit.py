@@ -1440,13 +1440,7 @@ class OpenSetDetectorWithExamples(nn.Module):
                     [image_size],
                     self.test_score_thresh,
                     self.test_nms_thresh,
-                    False,
-                    "gaussian",
-                    0.5,
-                    0.01,
                     self.test_topk_per_image,
-                    scores_bf_multiply = [scores],
-                    vis = False
                 ) 
 
             if self.use_mask:
